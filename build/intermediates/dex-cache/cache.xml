@@ -3,12 +3,21 @@
 
     <item
         is-multidex="false"
-        jar="C:\Users\Abid Hasan\.android\build-cache\b4802eba796355e4be3b96aa92e30824a4501b39\output\jars\classes.jar"
+        jar="C:\Users\Abid Hasan\Desktop\dropbox\app\libs\httpmime-4.0.3.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.0"
-        sha1="112b8156f2b92828c558da2239efc25126869ada">
-        <dex dex="C:\Users\Abid Hasan\Desktop\dropbox\app\build\intermediates\pre-dexed\debug\classes_b60b041e9108ce2c2d0c68b3548b7f07dee7f328.jar" />
+        sha1="dd1973851926925e02d0bbdf4ec0f7435d8292ce">
+        <dex dex="C:\Users\Abid Hasan\Desktop\dropbox\app\build\intermediates\pre-dexed\debug\httpmime-4.0.3_ca945c8e5f5b68c601ddfb3b32ea0cb4f3135039.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Abid Hasan\.android\build-cache\7980f13bbcd0964f3b3d61ab9497f8765b8f69bf\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="a4acede880f95b40d6c80d24a356b8bf939cab2e">
+        <dex dex="C:\Users\Abid Hasan\Desktop\dropbox\app\build\intermediates\pre-dexed\debug\classes_e153f3887c7372ddc696760c7123f85f90700b16.jar" />
     </item>
     <item
         is-multidex="false"
@@ -21,39 +30,12 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\Abid Hasan\Desktop\dropbox\app\libs\httpmime-4.0.3.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="dd1973851926925e02d0bbdf4ec0f7435d8292ce">
-        <dex dex="C:\Users\Abid Hasan\Desktop\dropbox\app\build\intermediates\pre-dexed\debug\httpmime-4.0.3_ca945c8e5f5b68c601ddfb3b32ea0cb4f3135039.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Android\sdk1\extras\android\m2repository\com\android\support\support-annotations\25.3.1\support-annotations-25.3.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
-        <dex dex="C:\Users\Abid Hasan\Desktop\dropbox\app\build\intermediates\pre-dexed\debug\support-annotations-25.3.1_0b7d81e7c3f24510599b53514055b87d307b5fbf.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="C:\Users\Abid Hasan\Desktop\dropbox\app\libs\dropbox-android-sdk-1.6.3.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.0"
         sha1="986e7a58e925c6f91b88ae8d3224a0550b65acc7">
         <dex dex="C:\Users\Abid Hasan\Desktop\dropbox\app\build\intermediates\pre-dexed\debug\dropbox-android-sdk-1.6.3_0cfeb59829e1b08e8a22f51b0e8022c8df461af3.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Abid Hasan\.android\build-cache\686ea1d2909472522a8b3eddf8bc009b97143caa\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="914f5d3e3ace66080e59613708f06d129a222e25">
-        <dex dex="C:\Users\Abid Hasan\Desktop\dropbox\app\build\intermediates\pre-dexed\debug\classes_191d42b565be3a0bcfe35703c2bf57f688ed15fc.jar" />
     </item>
 
 </items>

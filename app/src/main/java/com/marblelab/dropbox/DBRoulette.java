@@ -26,16 +26,15 @@
 package com.marblelab.dropbox;
 
 import android.app.Activity;
-import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.content.pm.PackageManager;
+import android.content.res.AssetManager;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
-import android.provider.MediaStore;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.View;
@@ -52,12 +51,14 @@ import com.dropbox.client2.android.AndroidAuthSession;
 import com.dropbox.client2.android.AuthActivity;
 import com.dropbox.client2.session.AccessTokenPair;
 import com.dropbox.client2.session.AppKeyPair;
+import com.firebase.client.Firebase;
+
 
 import java.io.File;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
+import java.sql.Time;
+
+import se.marteinn.utils.fonts.fontmanager.ApplyFont;
+import se.marteinn.utils.fonts.fontmanager.FontManager;
 
 
 public class DBRoulette extends Activity {
@@ -98,6 +99,9 @@ public class DBRoulette extends Activity {
     private ImageView mImage;
     private ImageView mImageSecond;
 
+    private TextView mPullText;
+
+    Firebase mRef;
 
     /**
      * New Widgets for new UI
@@ -113,7 +117,8 @@ public class DBRoulette extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        Firebase.setAndroidContext(this);
+        mRef=new Firebase("https://light-and-fridge.firebaseio.com/fridge/state");
 
         /**
          * new codes here
@@ -124,16 +129,12 @@ public class DBRoulette extends Activity {
         imagePopup.setBackgroundColor(Color.BLACK);
         imagePopup.setWindowWidth(1400);
         imagePopup.setWindowHeight(1000);
-
         imagePopup.setHideCloseIcon(true);
-
         imagePopup.setImageOnClickClose(true);
 
 
 
-
-
-
+        mPullText=(TextView)findViewById(R.id.tvPullText);
 
         if (savedInstanceState != null) {
             mCameraFileName = savedInstanceState.getString("mCameraFileName");
@@ -153,6 +154,7 @@ public class DBRoulette extends Activity {
          */
 
         mSubmit = (Button)findViewById(R.id.auth_button);
+        mSubmit.setBackgroundColor(Color.WHITE);
 
         mSubmit.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
@@ -189,7 +191,7 @@ public class DBRoulette extends Activity {
         mImageSecond.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                imagePopup.initiatePopup(mImage.getDrawable());
+                imagePopup.initiatePopup(mImageSecond.getDrawable());
             }
         });
         // This is the button to take a photo
@@ -231,9 +233,12 @@ public class DBRoulette extends Activity {
        mRoulette.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
            @Override
            public void onRefresh() {
-               DownloadRandomPicture download = new DownloadRandomPicture(DBRoulette.this, mApi, PHOTO_DIR, mImage,1);
+               mRef.setValue("send");
+               //TODO implements a 3-5 sec wait commands or methods
+               
+               DownloadRandomPicture download = new DownloadRandomPicture(DBRoulette.this, mApi, PHOTO_DIR, mImage,2);
                download.execute();
-               DownloadRandomPicture downloadSecond = new DownloadRandomPicture(DBRoulette.this, mApi, PHOTO_DIR, mImageSecond,2);
+               DownloadRandomPicture downloadSecond = new DownloadRandomPicture(DBRoulette.this, mApi, PHOTO_DIR, mImageSecond,1);
                downloadSecond.execute();
            }
        });

@@ -20,12 +20,13 @@
         tools:layout_editor_absoluteY="8dp">
 
         <TextView
+            android:id="@+id/tvPullText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="cursive"
             android:gravity="center"
             android:text="Pull to Refresh "
             android:textSize="20dp"
+            android:fontFamily="sans-serif-smallcaps"
             android:padding="10dp"/>
 
 
@@ -141,8 +142,8 @@
                         android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:clickable="true"
-                        android:fontFamily="cursive"
                         android:gravity="center"
+                        android:fontFamily="sans-serif-smallcaps"
                         android:text="Link Account"
                         android:textSize="15dp" />
 
