@@ -35,6 +35,7 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.View;
@@ -229,17 +230,28 @@ public class DBRoulette extends Activity {
 
         // This is the button to take a photo
         mRoulette = (SwipeRefreshLayout) findViewById(R.id.roulette_button);
-
+        mPullText=(TextView)findViewById(R.id.tvPullText);
        mRoulette.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
            @Override
            public void onRefresh() {
                mRef.setValue("send");
                //TODO implements a 3-5 sec wait commands or methods
-               
-               DownloadRandomPicture download = new DownloadRandomPicture(DBRoulette.this, mApi, PHOTO_DIR, mImage,2);
-               download.execute();
-               DownloadRandomPicture downloadSecond = new DownloadRandomPicture(DBRoulette.this, mApi, PHOTO_DIR, mImageSecond,1);
-               downloadSecond.execute();
+               new CountDownTimer(5000, 1000) {
+
+                   public void onTick(long millisUntilFinished) {
+                       mPullText.setText("seconds remaining: " + millisUntilFinished / 1000);
+                   }
+
+                   public void onFinish() {
+                       mPullText.setText("done!");
+                       mPullText.setText("Pull To Refresh ");
+                       DownloadRandomPicture download = new DownloadRandomPicture(DBRoulette.this, mApi, PHOTO_DIR, mImage,2);
+                       download.execute();
+                       DownloadRandomPicture downloadSecond = new DownloadRandomPicture(DBRoulette.this, mApi, PHOTO_DIR, mImageSecond,1);
+                       downloadSecond.execute();
+                   }
+               }.start();
+
            }
        });
 

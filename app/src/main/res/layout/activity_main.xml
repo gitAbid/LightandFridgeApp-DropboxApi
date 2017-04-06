@@ -145,7 +145,8 @@
                         android:gravity="center"
                         android:fontFamily="sans-serif-smallcaps"
                         android:text="Link Account"
-                        android:textSize="15dp" />
+                        android:textSize="15dp"
+                        />
 
 
                 </LinearLayout>
