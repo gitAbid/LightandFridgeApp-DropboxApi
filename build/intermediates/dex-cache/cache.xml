@@ -3,21 +3,12 @@
 
     <item
         is-multidex="false"
-        jar="C:\Users\Abid Hasan\Desktop\dropbox\app\libs\httpmime-4.0.3.jar"
+        jar="C:\Users\Abid Hasan\Desktop\dropbox\app\libs\dropbox-android-sdk-1.6.3.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.0"
-        sha1="dd1973851926925e02d0bbdf4ec0f7435d8292ce">
-        <dex dex="C:\Users\Abid Hasan\Desktop\dropbox\app\build\intermediates\pre-dexed\debug\httpmime-4.0.3_ca945c8e5f5b68c601ddfb3b32ea0cb4f3135039.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Abid Hasan\.android\build-cache\7980f13bbcd0964f3b3d61ab9497f8765b8f69bf\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="a4acede880f95b40d6c80d24a356b8bf939cab2e">
-        <dex dex="C:\Users\Abid Hasan\Desktop\dropbox\app\build\intermediates\pre-dexed\debug\classes_e153f3887c7372ddc696760c7123f85f90700b16.jar" />
+        sha1="986e7a58e925c6f91b88ae8d3224a0550b65acc7">
+        <dex dex="C:\Users\Abid Hasan\Desktop\dropbox\app\build\intermediates\pre-dexed\debug\dropbox-android-sdk-1.6.3_0cfeb59829e1b08e8a22f51b0e8022c8df461af3.jar" />
     </item>
     <item
         is-multidex="false"
@@ -30,12 +21,12 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\Abid Hasan\Desktop\dropbox\app\libs\dropbox-android-sdk-1.6.3.jar"
+        jar="C:\Users\Abid Hasan\Desktop\dropbox\app\libs\httpmime-4.0.3.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.0"
-        sha1="986e7a58e925c6f91b88ae8d3224a0550b65acc7">
-        <dex dex="C:\Users\Abid Hasan\Desktop\dropbox\app\build\intermediates\pre-dexed\debug\dropbox-android-sdk-1.6.3_0cfeb59829e1b08e8a22f51b0e8022c8df461af3.jar" />
+        sha1="dd1973851926925e02d0bbdf4ec0f7435d8292ce">
+        <dex dex="C:\Users\Abid Hasan\Desktop\dropbox\app\build\intermediates\pre-dexed\debug\httpmime-4.0.3_ca945c8e5f5b68c601ddfb3b32ea0cb4f3135039.jar" />
     </item>
 
 </items>

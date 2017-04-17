@@ -38,6 +38,7 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -130,11 +131,20 @@ public class DBRoulette extends Activity {
          * new codes here
          */
 
-
+      /*  DisplayMetrics displayMetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        int height = displayMetrics.heightPixels;
+        int width = displayMetrics.widthPixels;
+*/
         final ImagePopup imagePopup=new ImagePopup(this);
         imagePopup.setBackgroundColor(Color.BLACK);
-        imagePopup.setWindowWidth(1500);
-        imagePopup.setWindowHeight(1250);
+        //Pad
+        /*imagePopup.setWindowWidth(1500);
+        imagePopup.setWindowHeight(1250);*/
+
+        //S2
+        imagePopup.setWindowWidth(480);
+        imagePopup.setWindowHeight(410);
         imagePopup.setHideCloseIcon(true);
         imagePopup.setImageOnClickClose(true);
 
