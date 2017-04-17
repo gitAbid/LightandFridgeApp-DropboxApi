@@ -45,4 +45,5 @@ dependencies {
     compile 'com.firebase:firebase-client-android:2.3.1'
     compile 'se.marteinn.utils.fonts:fontmanager:1.0-BETA@aar'
 
+    compile 'com.android.support:design:25.3.1'
 }

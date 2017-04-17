@@ -36,8 +36,11 @@ import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -92,7 +95,7 @@ public class DBRoulette extends Activity {
     private boolean mLoggedIn;
 
     // Android widgets
-    private Button mSubmit;
+    private FloatingActionButton mSubmit;
     private LinearLayout mDisplay;
     private Button mPhoto;
     public static SwipeRefreshLayout mRoulette;
@@ -100,7 +103,9 @@ public class DBRoulette extends Activity {
     private ImageView mImage;
     private ImageView mImageSecond;
 
-    private TextView mPullText;
+    private TextView mPullText1;
+    private TextView mPullText2;
+    private Menu mMenu;
 
     Firebase mRef;
 
@@ -128,14 +133,12 @@ public class DBRoulette extends Activity {
 
         final ImagePopup imagePopup=new ImagePopup(this);
         imagePopup.setBackgroundColor(Color.BLACK);
-        imagePopup.setWindowWidth(1400);
-        imagePopup.setWindowHeight(1000);
+        imagePopup.setWindowWidth(1500);
+        imagePopup.setWindowHeight(1250);
         imagePopup.setHideCloseIcon(true);
         imagePopup.setImageOnClickClose(true);
 
 
-
-        mPullText=(TextView)findViewById(R.id.tvPullText);
 
         if (savedInstanceState != null) {
             mCameraFileName = savedInstanceState.getString("mCameraFileName");
@@ -154,10 +157,8 @@ public class DBRoulette extends Activity {
          * old code
          */
 
-        mSubmit = (Button)findViewById(R.id.auth_button);
-        mSubmit.setBackgroundColor(Color.WHITE);
-
-        mSubmit.setOnClickListener(new OnClickListener() {
+         mSubmit = (FloatingActionButton) findViewById(R.id.fbSubmit);
+         mSubmit.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
                 // This logs you out if you're logged in, or vice versa
                 if (mLoggedIn) {
@@ -230,21 +231,24 @@ public class DBRoulette extends Activity {
 
         // This is the button to take a photo
         mRoulette = (SwipeRefreshLayout) findViewById(R.id.roulette_button);
-        mPullText=(TextView)findViewById(R.id.tvPullText);
+       mPullText1=(TextView)findViewById(R.id.tvPullText1);
+       mPullText2=(TextView)findViewById(R.id.tvPullText2);
        mRoulette.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
            @Override
            public void onRefresh() {
                mRef.setValue("send");
                //TODO implements a 3-5 sec wait commands or methods
-               new CountDownTimer(5000, 1000) {
+               new CountDownTimer(15000, 1000) {
 
                    public void onTick(long millisUntilFinished) {
-                       mPullText.setText("seconds remaining: " + millisUntilFinished / 1000);
+                       mPullText1.setText("Waiting : " + millisUntilFinished / 1000);
+                       mPullText2.setText("Waiting: " + millisUntilFinished / 1000);
                    }
 
                    public void onFinish() {
-                       mPullText.setText("done!");
-                       mPullText.setText("Pull To Refresh ");
+
+                       mPullText1.setText("Camera One");
+                       mPullText2.setText("Camera Two");
                        DownloadRandomPicture download = new DownloadRandomPicture(DBRoulette.this, mApi, PHOTO_DIR, mImage,2);
                        download.execute();
                        DownloadRandomPicture downloadSecond = new DownloadRandomPicture(DBRoulette.this, mApi, PHOTO_DIR, mImageSecond,1);
@@ -266,12 +270,6 @@ public class DBRoulette extends Activity {
         // Display the proper UI state if logged in or not
         setLoggedIn(mApi.getSession().isLinked());
 
-    }
-
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        outState.putString("mCameraFileName", mCameraFileName);
-        super.onSaveInstanceState(outState);
     }
 
     @Override
@@ -339,10 +337,11 @@ public class DBRoulette extends Activity {
     private void setLoggedIn(boolean loggedIn) {
     	mLoggedIn = loggedIn;
     	if (loggedIn) {
-    		mSubmit.setText("Unlink from Dropbox");
+    		mSubmit.setImageResource(R.drawable.ic_cloud_queue_white_24dp);
             //mDisplay.setVisibility(View.VISIBLE);
     	} else {
-    		mSubmit.setText("Link with Dropbox");
+            mSubmit.setImageResource(R.drawable.ic_cloud_off_white_24dp);
+    		//mSubmit.setText("Link with Dropbox");
             //mDisplay.setVisibility(View.GONE);
             //mImage.setImageDrawable(null);
     	}
