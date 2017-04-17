@@ -46,5 +46,6 @@ dependencies {
     compile 'se.marteinn.utils.fonts:fontmanager:1.0-BETA@aar'
     compile 'com.android.support:design:25.3.1'
     compile 'com.github.ViksaaSkool:AwesomeSplash:v1.0.0'
+    compile 'agency.tango.android:material-intro-screen:0.0.5'
     testCompile 'junit:junit:4.12'
 }

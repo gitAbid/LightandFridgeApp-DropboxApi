@@ -12,11 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Main2Activity"
-            android:noHistory="true"
+            android:name=".Launcher"
             android:configChanges="orientation|keyboard"
             android:label="@string/app_name"
-            >
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -38,11 +37,18 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".DBRoulette"
             android:configChanges="orientation|keyboard"
-            android:label="@string/app_name">
+            android:label="@string/app_name"></activity>
+        <activity
+            android:name=".IntroActivity">
+
+        </activity>
+        <activity
+            android:name=".Main2Activity"
+            android:noHistory="true">
+
         </activity>
     </application>
 

@@ -1,6 +1,9 @@
 package com.marblelab.dropbox;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.CountDownTimer;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -12,6 +15,9 @@ import com.viksaa.sssplash.lib.model.ConfigSplash;
 public class Main2Activity extends AwesomeSplash {
 
     public void initSplash(ConfigSplash configSplash) {
+
+
+
         configSplash.setBackgroundColor(R.color.colorPrimaryDark); //any color you want form colors.xml
         configSplash.setAnimCircularRevealDuration(1000); //int ms
         configSplash.setRevealFlagX(Flags.REVEAL_LEFT);  //or Flags.REVEAL_LEFT
@@ -36,13 +42,20 @@ public class Main2Activity extends AwesomeSplash {
         configSplash.setAnimTitleTechnique(Techniques.BounceInDown);
         configSplash.setTitleFont("fonts/Raleway-ExtraLight.ttf");
 
+
+
     }
 
     @Override
     public void animationsFinished() {
 
-        Intent intent=new Intent(getApplicationContext(),DBRoulette.class);
-        startActivity(intent);
+        new CountDownTimer(1000, 500) {
+            public void onTick(long millisUntilFinished) {}
+            public void onFinish() {
+            Intent intent=new Intent(getApplicationContext(),DBRoulette.class);
+            startActivity(intent);
+        }}.start();
+
     }
 
 

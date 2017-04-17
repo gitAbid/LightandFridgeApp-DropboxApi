@@ -139,12 +139,12 @@ public class DBRoulette extends Activity {
         final ImagePopup imagePopup=new ImagePopup(this);
         imagePopup.setBackgroundColor(Color.BLACK);
         //Pad
-        /*imagePopup.setWindowWidth(1500);
-        imagePopup.setWindowHeight(1250);*/
+        imagePopup.setWindowWidth(1500);
+        imagePopup.setWindowHeight(1250);
 
         //S2
-        imagePopup.setWindowWidth(480);
-        imagePopup.setWindowHeight(410);
+        /*imagePopup.setWindowWidth(480);
+        imagePopup.setWindowHeight(410);*/
         imagePopup.setHideCloseIcon(true);
         imagePopup.setImageOnClickClose(true);
 
